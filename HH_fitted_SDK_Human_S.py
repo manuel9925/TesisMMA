@@ -120,16 +120,16 @@ params_init = [120.0, 36.0, 0.3, 50.0, -77.0, -54.4, 1.0]
 
 
 # Optimizando parametros utilizando funcion de pérdida
-result = minimize(loss_function, params_init, args=(V_observed, t),tol=1e-6, method='L-BFGS-B',options={'maxiter': 10000, 'disp': True})
+result = minimize(loss_function, params_init, args=(V_observed, t),tol=1e-6, method='L-BFGS-B',options={'maxiter': 10000, 'disp': True,'eps':1e-8,'gtol':1e-12})
 
 # Extrayendo parametros Optimizados
 optimized_params = result.x
 
-#result2 = minimize(loss_function, optimized_params, args=(V_observed, t),tol=1e-6, method='BFGS',options={'maxiter': 1000, 'disp': True})
+#result2 = minimize(loss_function, optimized_params, args=(V_observed, t),tol=1e-6, method='BFGS',options={'maxiter': 1000, 'disp': True,'eps':1e-8,'gtol':1e-12})
 
 #optimized_params2 = result2.x
 
-#result3 = minimize(loss_function, optimized_params2, args=(V_observed, t),tol=1e-6, method='CG',options={'maxiter': 1000, 'disp': True})
+#result3 = minimize(loss_function, optimized_params2, args=(V_observed, t),tol=1e-6, method='CG',options={'maxiter': 1000, 'disp': True,'eps':1e-8,'gtol':1e-12})
 
 #optimized_params3 = result3.x
 

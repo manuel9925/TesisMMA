@@ -29,6 +29,14 @@ def hh_model(t, y, I_ext,C_m,g_Na,g_K,g_L,V_Na,V_K,V_L):
     dndt = alpha_n(V) * (1 - n) - beta_n(V) * n
     return [dVdt, dmdt, dhdt, dndt]
 
+def hh_model_wrapper(y,t,I_ext,C_m,g_Na,g_K,g_L,V_Na,V_K,V_L):
+    V, m, h, n = y
+    dVdt = (I_ext - g_Na * m**3 * h * (V - V_Na) - g_K * n**4 * (V - V_K) - g_L * (V - V_L)) / C_m
+    dmdt = alpha_m(V) * (1 - m) - beta_m(V) * m
+    dhdt = alpha_h(V) * (1 - h) - beta_h(V) * h
+    dndt = alpha_n(V) * (1 - n) - beta_n(V) * n
+    return [dVdt, dmdt, dhdt, dndt]
+
 def simulate(I_ext, C_m,g_Na,g_K,g_L,V_Na,V_K,V_L,t_max=500, dt=0.01):
     t = np.arange(0, t_max, dt)
     y0 = [-65, 0.0529, 0.5961, 0.3177] 

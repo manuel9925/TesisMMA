@@ -55,6 +55,16 @@ plt.tight_layout()
 plt.show()
 
 
+#fig = plt.figure()
+#ax = plt.axes(projection='3d')
+
+# Data for a three-dimensional line
+#zline = sol['y'][3]
+#xline = sol['y'][0]
+#yline = sol['y'][1]
+#ax.plot3D(xline, yline, zline, 'gray')
+#fig.show()
+
 # Rango parametrico para bifurcacion
 t = np.linspace(0, 200, 10000)  
 I_values = np.linspace(0, 10, 1000)

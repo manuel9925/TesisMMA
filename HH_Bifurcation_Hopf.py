@@ -11,6 +11,16 @@ g_L = 0.70246232
 V_Na = 49.99638308
 V_K = -76.95790628 
 V_L = -54.37535052 
+
+#C_m = 1.0
+#g_Na = 120.0
+#g_K = 36.0
+#g_L = 0.3 
+#V_Na = 50.0 
+#V_K = -77.0 
+#V_L = -54.4 
+
+
 I_range = np.linspace(0, 200, 200)
 t_max=500
 dt=0.01
@@ -28,11 +38,13 @@ for I_ext in I_range:
         min_values.append(np.nan)
 
 plt.figure(figsize=(10, 6))
-plt.plot(I_range, max_values,'o',label='Valor Máx Oscilación',markeredgewidth=0.1)
-plt.plot(I_range, min_values,'o',label='Valor Mín Oscilación',markeredgewidth=0.1)
+plt.plot(I_range, max_values,'.',label='Valor Máx Oscilación',markeredgewidth=0.05)
+plt.plot(I_range, min_values,'.',label='Valor Mín Oscilación',markeredgewidth=0.05,color='#828282')
 plt.axvline(x = 11.691691691691691, color = 'black',linestyle= '--', label = 'Valor crítico de I')
 plt.xlabel('Corriente Externa (I)')
 plt.ylabel('Potencial de Membrana (mV)')
 plt.legend()
 plt.grid()
 plt.show()
+#11.691691691691691
+#6.25625626

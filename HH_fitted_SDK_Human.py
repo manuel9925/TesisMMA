@@ -125,7 +125,7 @@ def loss_function(params, experimental_data, time_points):
     #V_sim = sim_data['y'][0] 
 
     # Calculando mean squared error (MSE)
-    mse = np.sqrt(np.mean((V_sim - experimental_data)**2))
+    mse = np.sqrt(np.mean((V_sim - experimental_data)**2))*1e9
     return mse
 
 # Intento inicial de los parametros
